@@ -5,6 +5,7 @@ import 'babel-polyfill';
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const Menu = electron.Menu;
 
 let mainWindow;
 
@@ -27,6 +28,26 @@ const createWindow = () => {
     mainWindow = null;
   });
 };
+
+const templateMenu = [
+  {
+    label: 'Home',
+    click: () => {
+      mainWindow.webContents.executeJavaScript("location.assign('#');");
+    }
+  },
+  {
+    label: 'Lista de Entregadores',
+    click: () => {
+      mainWindow.webContents.executeJavaScript("location.assign('#deliverymenList');");
+    }
+  },
+];
+
+const menu = Menu.buildFromTemplate(templateMenu);
+Menu.setApplicationMenu(menu);
+// https://github.com/SimulatedGREG/electron-vue/issues/576
+// https://stackoverflow.com/questions/46776262/electron-menu-not-showing/48234202
 
 app.on('ready', createWindow);
 

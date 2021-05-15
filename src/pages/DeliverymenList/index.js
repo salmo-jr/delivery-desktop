@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PersonCard from '../../components/PersonCard';
+import GlobalMenu from '../../components/GlobalMenu';
 import api from '../../services/api';
 
 const DeliverymenList = () => {
@@ -22,6 +23,7 @@ const DeliverymenList = () => {
 
     return (
         <>
+            <GlobalMenu />
             <h1>Lista de Entregadores</h1>
             <ul>
                 {deliverymen.map(d => {

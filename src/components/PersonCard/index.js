@@ -3,9 +3,17 @@ import { shell } from 'electron'
 import { Title, Info, Link, Card, Description, Avatar } from './styles';
 
 const PersonCard = ({ data }) => {
+    /* const [bgColor, setBgColor] = useState('dark'); */
+
     return (
-        <Card bgcolor={styleCard ? 'dark' : 'light'}>
-            <Avatar onMouseOver={() => setStyleCard()} src={data.avatar_url} />
+        <Card
+        /* bgColor={bgColor} */
+        >
+            <Avatar
+                src={data.avatar_url}
+            /* onMouseOver={() => setBgColor('light')}
+            onMouseLeave={() => setBgColor('dark')} */
+            />
             <Description>
                 <Title>{data.login} <span>{data.id}</span></Title>
                 <Info>
