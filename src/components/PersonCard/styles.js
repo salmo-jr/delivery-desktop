@@ -1,11 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Card = styled.li`
-    background-color: #ccc;
+    background-color: #888;
     border: thin solid #aaa;
     display: flex;
     padding: 10px;
     border-radius: 5px;
+    ${props => props.bgColor && props.bgColor === 'light' && css`
+        background-color: #ccc;
+    `}
 
     & + & {
         margin-top: 15px;

@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shell } from 'electron'
 import { Title, Info, Link, Card, Description, Avatar } from './styles';
 
 const PersonCard = ({ data }) => {
-    /* const [bgColor, setBgColor] = useState('dark'); */
+    const [bgColor, setBgColor] = useState('dark');
 
     return (
-        <Card
-        /* bgColor={bgColor} */
+        <Card bgColor={bgColor}
+            onMouseOver={() => setBgColor('light')}
+            onMouseLeave={() => setBgColor('dark')}
         >
-            <Avatar
-                src={data.avatar_url}
-            /* onMouseOver={() => setBgColor('light')}
-            onMouseLeave={() => setBgColor('dark')} */
-            />
+            <Avatar src={data.avatar_url} />
             <Description>
                 <Title>{data.login} <span>{data.id}</span></Title>
                 <Info>
